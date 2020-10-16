@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
   
   <title>TheBlog</title>
 </head>
@@ -33,7 +33,6 @@
   <main>
 
     <article id="post" class="post" data-app="post">
-
       <section class="post-content">
         <div class="post-title__container">
           <h1 id="post-title" class="post-title__text"></h1>
@@ -42,9 +41,7 @@
         </div>
         <div id="post-content" class="post-content"></div>
       </section>
-
-      <hr/>
-    
+      <div class="post-divisor"></div>
       <section class="post-comments">
         <h4>Comments</h4>
         <div id="post-comments" class="list-group comments-list"></div>
@@ -65,7 +62,6 @@
   </main>
   <footer></footer>
   
-  <script type="module" src="./index.js"></script>
-  <script type="module" src="./js/api.js"></script>
+  <script type="module" src="./js/index.js"></script>
 </body>
 </html>

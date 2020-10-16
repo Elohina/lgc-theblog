@@ -1,8 +1,13 @@
 
-const api = "http://localhost:9001";
+import { API_URL } from '../constants.js';
 
-export const fetchPosts = async() => {
-  const result = await fetch(`${api}/posts`).then(response => {
+const apiRequest = async(resource, method, headers, body) => {
+  const result = await fetch(`${API_URL}${resource}`, {
+    ...(method && {method: method}),
+    ...(headers && {headers: headers}),
+    ...(body && {body: body})
+  })
+  .then(response => {
     if (response.ok) {
       return response.json();
     } else {
@@ -10,75 +15,31 @@ export const fetchPosts = async() => {
     }
   })
   .then(data => {
-    console.log(data)
     return data;
   })
   .catch(err => {
     console.log('Somenthing went wrong.', err);
   });
-
   return result;
 };
 
-export const fetchPost = async(id) => {
-  const result = await fetch(`${api}/posts/${id}`).then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      return Promise.reject(response);
-    }
-  })
-  .then(data => {
-    console.log(data)
-    return data;
-  })
-  .catch(err => {
-    console.log('Somenthing went wrong.', err);
-  });
+export const fetchPosts = () => {
+  return apiRequest('/posts');
+};
 
-  return result;
+export const fetchPost = postId => {
+  return apiRequest(`/posts/${postId}`);
 }
 
-export const fetchComments = async(id) => {
-  const result = await fetch(`${api}/posts/${id}/comments`).then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      return Promise.reject(response);
-    }
-  })
-  .then(data => {
-    console.log(data)
-    return data;
-  })
-  .catch(err => {
-    console.log('Somenthing went wrong.', err);
-  });
-
-  return result;
+export const fetchComments = postId => {
+  return apiRequest(`/posts/${postId}/comments`);
 };
 
-export const addComment = async({postId, content, user, date, parent_id}) => {
-  const result = await fetch(`${api}/posts/${postId}/comments`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({postId, content, user, date, parent_id}),
-  }).then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      return Promise.reject(response);
-    }
-  })
-  .then(data => {
-    console.log(data)
-    return data;
-  })
-  .catch(err => {
-    console.log('Somenthing went wrong.', err);
-  });
-
-  return result;
+export const addComment = ({postId, content, user, date, parent_id}) => {
+  return apiRequest(
+    `/posts/${postId}/comments`, 
+    'POST',
+    {'Content-Type': 'application/json'},
+    JSON.stringify({postId, content, user, date, parent_id})
+  );
 };
