@@ -1,0 +1,47 @@
+.post {
+  padding-left: 4rem;
+  padding-right: 4rem;
+
+  &-content {
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+  }
+  &-title__container {
+    display: block;
+    height: 10rem;
+    text-align: center;
+  }
+  &-title__text {
+    
+  }
+
+  &-comments {
+    padding-top: 2rem;
+
+    &-list {
+
+    }
+
+    &__form {
+      padding-top: 2rem;
+    }
+
+    &__item {
+      position: relative;
+      display: block;
+      padding: .75rem 1.25rem;
+      margin-bottom: -1px;
+      background-color: #fff;
+      color: #495057;
+      border: 1px solid rgba(0,0,0,.125);
+    }
+
+    &__response {
+      background-color: var(--light);
+      width: 90%;
+      justify-self: center;
+    }
+
+  }
+
+}

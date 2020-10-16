@@ -1,0 +1,14 @@
+.posts {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  .posts__item {
+    padding-left: 0;
+    padding-right: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    margin-bottom: 0;
+  }
+}

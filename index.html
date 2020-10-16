@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+  <title>TheBlog</title>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="navbar-brand" href="/"><h2>TheBlog</h2></a>
+      <div class="navbar-utils">
+        <form class="navbar-utils__search">
+          <input
+          type="text"
+          class="form-control"
+          placeholder="Search"
+          aria-label="Search"
+          >
+        </form>
+        <ul class="navbar-nav">
+          <li class="navbar-item">
+            <a class="nav-link" href="#">User</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+
+    <div id="home" data-app="home">
+      <div class="banner">
+        <div class="banner-featured">
+          <small>Featured</small><br />
+          <p id="featuredAuthor" class="banner-featured__author"></p>
+          <div class="banner-featured__title-container">
+            <h2 id="featuredTitle" class="banner-featured__title"></h2>
+            <p id="featuredDate" class="banner-featured__date"></p>
+          </div>
+          <p id="featuredDescription" class="banner-featured__description"</p>
+        </div>
+        <div class="banner-topics">
+          <button type="button" class="btn btn-light">Food</button>
+          <button type="button" class="btn btn-light">Travel</button>
+          <button type="button" class="btn btn-light">Climate Change</button>
+          <button type="button" class="btn btn-light">Science</button>
+          <button type="button" class="btn btn-light">Mental Health</button>
+        </div>
+      </div>
+
+      <section class="posts">
+        <div id="postsList" class="posts list-group">
+      </section>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+  
+  <script type="module" src="index.js"></script>
+</body>
+</html>
