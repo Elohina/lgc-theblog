@@ -25,7 +25,7 @@ const createCommentElement = ({id, user, date, content, parent_id, postId}) => {
         <textarea id="user-comment" class="form-control" rows="5" cols="50" required></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
-      <button type="button" class="btn btn-secondary">Cancel</button>
+      <button id="cancelButton${id}" type="button" class="btn btn-secondary">Cancel</button>
     </form>
   `;
   let replyButton = document.createElement('button');
@@ -48,6 +48,11 @@ const createCommentElement = ({id, user, date, content, parent_id, postId}) => {
   });
   replyButton.textContent ="Reply";
   replyButton.classList.add("btn", "btn-light");
+  commentElement.querySelector(`#cancelButton${id}`).addEventListener('click', event => {
+    const replyForm = document.getElementById(`post-comments-form-${id}`);
+    replyButton.style.display = "block";
+    replyForm.style.display = "none";
+  });
   commentElement.appendChild(replyButton);
   return commentElement;
 };
