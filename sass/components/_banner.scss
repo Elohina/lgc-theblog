@@ -4,32 +4,44 @@
   padding-bottom: 2rem;
   &-featured {
     width: 70%;
-    height: 10rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
     border-right: .8px solid #dedede;
-    text-decoration: none;
     color: var(--gray-dark);
-
-    &__author {
-      
-    }
-
-    &__title-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      &__title {
-
+    
+    &__container {
+      text-decoration: none;
+  
+      &__heading {
+        color: var(--primary);
       }
-      &__date {
-
+  
+      &__author {
+        
       }
-    }
+  
+      &__title-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &__title {
+  
+        }
+        &__date {
+  
+        }
+      }
+  
+      &__description {
+  
+      }
 
-    &__description {
-
     }
+  }
+  &-featured:hover {
+    text-decoration: none; 
+    background-color: var(--light);
   }
   &-topics {
     padding: 2rem;

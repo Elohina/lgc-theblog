@@ -52,16 +52,22 @@ nav {
   padding-bottom: 2rem; }
   .banner-featured {
     width: 70%;
-    height: 10rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
     border-right: .8px solid #dedede;
-    text-decoration: none;
     color: var(--gray-dark); }
-    .banner-featured__title-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center; }
+    .banner-featured__container {
+      text-decoration: none; }
+      .banner-featured__container__heading {
+        color: var(--primary); }
+      .banner-featured__container__title-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+  .banner-featured:hover {
+    text-decoration: none;
+    background-color: var(--light); }
   .banner-topics {
     padding: 2rem;
     display: flex;

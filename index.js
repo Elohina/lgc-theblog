@@ -10,11 +10,11 @@ const createCommentElement = ({id, user, date, content, parent_id, postId}) => {
   commentElement.setAttribute("id", id);
   commentElement.classList.add("post-comments__item");
   commentElement.innerHTML = `
-    <div id="response-${id}" class="d-flex w-100 justify-content-between">
-    <h5 class="mb-1">${user}</h5>
-    <small>${formatDate(date)}</small>
+    <div id="response-${id}" class="w-100">
+      <h5 class="mb-1">${user}</h5>
+      <small>${formatDate(date)}</small>
+      <p class="mb-2">${content}</p>
     </div>
-    <p class="mb-1">${content}</p>
     <form id="post-comments-form-${id}" data-parent=${id} class="post-comments__form" style="display:none;">
       <div class="form-group">
         <label for="user-name">Name</label>
@@ -32,15 +32,17 @@ const createCommentElement = ({id, user, date, content, parent_id, postId}) => {
   replyButton.addEventListener('click', event => {
     const replyForm = document.getElementById(`post-comments-form-${id}`);
     replyForm.style.display="block";
+    replyButton.style.display="none";
     replyForm.addEventListener('submit', event => {
       event.preventDefault();
       const user = replyForm.querySelector("#user-name").value;
       const content = replyForm.querySelector("#user-comment").value;
       const parentId = replyForm.getAttribute('data-parent');
       const date = new Date();
-      addComment({postId: JSON.parse(postId), content, date, parent_id: JSON.parse(parentId), user}).then(response => {
+      addComment({postId: parseInt(postId), content, date, parent_id: parseInt(parentId), user}).then(response => {
         replyForm.reset();
-        // document.getElementById('post-comments').appendChild(createCommentElement(response));
+        replyForm.style.display="none";
+        commentElement.appendChild(createCommentElement(response));
       });
     });
   });
@@ -57,9 +59,10 @@ const renderComments = (comments) => {
       let commentElement = createCommentElement(comment);
       if (comment.parent_id) {
         commentElement.classList.add("post-comments__response");
-        postComments.querySelector(`#response-${comment.parent_id}`).after(commentElement);  
-      } 
-      postComments.appendChild(commentElement);
+        postComments.querySelector(`#response-${comment.parent_id}`).append(commentElement);  
+      } else {
+        postComments.appendChild(commentElement);
+      }
       
     });
   } else {
@@ -96,11 +99,11 @@ const renderPosts = (posts) => {
   const featured = posts[0];
   document.getElementById("featuredAuthor").textContent = featured.author ;
   document.getElementById("featuredTitle").textContent = featured.title ;
-  document.getElementById("featuredDate").textContent = featured.publish_date ;
+  document.getElementById("featuredDate").textContent = formatDate(featured.publish_date);
   document.getElementById("featuredDescription").textContent = featured.description ;
+  document.getElementById("featuredHref").setAttribute("href", `/post.html?id=${JSON.stringify(featured.id)}`); 
 
   posts.forEach(post => {
-    const formattedDate = formatDate(post.date);
     let cell = document.createElement('a');
     cell.classList.add("posts__item", "list-group-item", "list-group-item-action", "flex-column", "align-items-start");
     cell.setAttribute("id", post.slug);
@@ -109,7 +112,7 @@ const renderPosts = (posts) => {
       <small>${post.author}</small>
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">${post.title}</h5>
-        <small>${formattedDate}</small>
+        <small>${formatDate(post.publish_date)}</small>
       </div>
       <p class="mb-1">${post.description}</p>`;
     cell.addEventListener("click", event => openPost(post));
@@ -141,8 +144,8 @@ window.addEventListener('load', () => {
     let commentsForm = document.getElementById('post-comments-form');
     commentsForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      const user = document.getElementById("user-name").value;
-      const content = document.getElementById("user-comment").value;
+      const user = commentsForm.querySelector("#user-name").value;
+      const content = commentsForm.querySelector("#user-comment").value;
       const date = new Date();
       addComment({postId, content, date, parent_id: null, user}).then(response => {
         commentsForm.reset();
