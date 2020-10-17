@@ -17,9 +17,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        &__title {
-          
-        }
       }
       
     }
@@ -36,12 +33,10 @@
   }
   &-topics {
     padding: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-
+    text-align: right;
     .btn {
       margin: .4rem;
+      background-color: #e9e4e4;
     }
   }
 }
@@ -59,12 +54,7 @@
 
     &-topics {
       padding-left: 0;
-      flex-wrap: wrap;
-      justify-content: start;
-  
-      .btn {
-        margin: .4rem;
-      }
+      text-align: left;
     }
   }
 }
