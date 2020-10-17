@@ -14,5 +14,8 @@
     "start": "npm-run-all --parallel devserver watch:sass"
   },
   "author": "Elohina Guevara",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.3"
+  }
 }

@@ -14,7 +14,17 @@ nav {
     padding-right: 2rem;
     padding-top: 1rem;
     &__search {
-    
+      margin-right: 2rem;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  nav {
+    .navbar-utils {
+      justify-content: space-between;
+      width: 40%;
+      padding-right: 0;
     }
   }
 }

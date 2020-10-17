@@ -58,5 +58,18 @@
     width: 85%;
 
   }
+}
 
+@include media-breakpoint-down(md) {
+  .post {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .post {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

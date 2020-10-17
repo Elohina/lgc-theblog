@@ -1,5 +1,6 @@
 .banner {
   display: flex;
+  flex-direction: row;
   padding-top: 2rem;
   padding-bottom: 2rem;
   &-featured {
@@ -51,6 +52,29 @@
 
     .btn {
       margin: .4rem;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .banner {
+    flex-direction: column-reverse;
+
+    &-featured {
+      width: 100%;
+      padding-top: .8rem;
+      padding-right: 0;
+      border-right: none;
+    }
+
+    &-topics {
+      padding-left: 0;
+      flex-wrap: wrap;
+      justify-content: start;
+  
+      .btn {
+        margin: .4rem;
+      }
     }
   }
 }

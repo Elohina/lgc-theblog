@@ -5,3 +5,15 @@ body {
   padding-left: 10rem;
   
 }
+
+@include media-breakpoint-down(md) {
+  body {
+    padding: 5rem;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  body {
+    padding: 2rem;
+  }
+}

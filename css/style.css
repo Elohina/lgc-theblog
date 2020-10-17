@@ -4,6 +4,14 @@ body {
   padding-right: 10rem;
   padding-left: 10rem; }
 
+@media (max-width: 991.98px) {
+  body {
+    padding: 5rem; } }
+
+@media (max-width: 767.98px) {
+  body {
+    padding: 2rem; } }
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -18,6 +26,14 @@ nav {
     width: 30%;
     padding-right: 2rem;
     padding-top: 1rem; }
+    nav .navbar-utils__search {
+      margin-right: 2rem; }
+
+@media (max-width: 991.98px) {
+  nav .navbar-utils {
+    justify-content: space-between;
+    width: 40%;
+    padding-right: 0; } }
 
 .post {
   padding-left: 4rem;
@@ -55,8 +71,19 @@ nav {
     background-color: #dedede;
     width: 85%; }
 
+@media (max-width: 991.98px) {
+  .post {
+    padding-left: 0;
+    padding-right: 0; } }
+
+@media (max-width: 767.98px) {
+  .post {
+    padding-left: 0;
+    padding-right: 0; } }
+
 .banner {
   display: flex;
+  flex-direction: row;
   padding-top: 2rem;
   padding-bottom: 2rem; }
   .banner-featured {
@@ -84,6 +111,21 @@ nav {
     justify-content: flex-end; }
     .banner-topics .btn {
       margin: .4rem; }
+
+@media (max-width: 991.98px) {
+  .banner {
+    flex-direction: column-reverse; }
+    .banner-featured {
+      width: 100%;
+      padding-top: .8rem;
+      padding-right: 0;
+      border-right: none; }
+    .banner-topics {
+      padding-left: 0;
+      flex-wrap: wrap;
+      justify-content: start; }
+      .banner-topics .btn {
+        margin: .4rem; } }
 
 .posts {
   padding-top: 2rem;
