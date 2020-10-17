@@ -1,25 +1,29 @@
-body {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+main {
   padding-right: 10rem;
   padding-left: 10rem;
-  
+}
+
+footer {
+  background-color: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 5rem;
 }
 
 @include media-breakpoint-down(lg) {
-  body {
+  main {
     padding: 8rem;
   }
 }
 
 @include media-breakpoint-down(md) {
-  body {
+  main {
     padding: 5rem;
   }
 }
 
 @include media-breakpoint-down(sm) {
-  body {
+  main {
     padding: 2rem;
   }
 }

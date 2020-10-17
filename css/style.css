@@ -1,19 +1,23 @@
-body {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+main {
   padding-right: 10rem;
   padding-left: 10rem; }
 
+footer {
+  background-color: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 5rem; }
+
 @media (max-width: 1199.98px) {
-  body {
+  main {
     padding: 8rem; } }
 
 @media (max-width: 991.98px) {
-  body {
+  main {
     padding: 5rem; } }
 
 @media (max-width: 767.98px) {
-  body {
+  main {
     padding: 2rem; } }
 
 nav {
@@ -21,7 +25,10 @@ nav {
   justify-content: space-between;
   height: 5rem;
   align-items: center;
-  background-color: white; }
+  background-color: white;
+  margin-right: 10rem;
+  margin-left: 10rem;
+  margin-top: 2rem; }
   nav .navbar-brand {
     color: rgba(0, 0, 0, 0.9); }
   nav .navbar-utils {
