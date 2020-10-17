@@ -8,10 +8,10 @@ export const createCommentElement = ({id, user, date, content, postId}) => {
   commentElement.setAttribute("id", id);
   commentElement.classList.add("post-comments__item");
   commentElement.innerHTML = `
-    <div id="response-${id}" class="w-100">
-      <h5 class="mb-1">${user}</h5>
-      <small>${formatDate(date)}</small>
-      <p class="mb-2">${content}</p>
+    <div id="response-${id}">
+      <h5>${user}</h5>
+      <small class="post-comments__item__date">${formatDate(date)}</small>
+      <p class="post-comments__item__content">${content}</p>
     </div>
     <form id="post-comments-form-${id}" data-parent=${id} class="post-comments__form" style="display:none;">
       <div class="form-group">
@@ -46,7 +46,7 @@ export const createCommentElement = ({id, user, date, content, postId}) => {
   });
 
   replyButton.textContent ="Reply";
-  replyButton.classList.add("btn", "btn-light");
+  replyButton.classList.add("btn", "btn-light", "mt-2");
   commentElement.querySelector(`#cancelButton${id}`).addEventListener('click', event => {
     const replyForm = document.getElementById(`post-comments-form-${id}`);
     replyButton.style.display = "block";
@@ -59,6 +59,7 @@ export const createCommentElement = ({id, user, date, content, postId}) => {
 
 export const renderComments = (comments) => {
   let postComments = document.getElementById('post-comments');
+  document.getElementById('comments-amount').textContent = comments.length;
   if (comments.length) {
     comments.forEach(comment => {
       let commentElement = createCommentElement(comment);

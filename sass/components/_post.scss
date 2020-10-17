@@ -17,9 +17,9 @@
 
   &-comments {
     padding-top: 2rem;
-
+    
     &-list {
-
+      padding-top: 2rem;
     }
 
     &__form {
@@ -34,11 +34,19 @@
       background-color: #fff;
       color: #495057;
       border: 1px solid rgba(0,0,0,.125);
+
+      &__content {
+        margin-top: 1rem;
+      }
+
+      &__date {
+        color: var(--gray)
+      }
+      
     }
 
     &__response {
-      background-color: var(--light);
-      width: 90%;
+      width: 95%;
       justify-self: center;
     }
 
@@ -48,7 +56,7 @@
     height: 1px;
     background-color: #dedede;
     width: 85%;
-    
+
   }
 
 }

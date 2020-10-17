@@ -31,6 +31,8 @@ nav {
     text-align: center; }
   .post-comments {
     padding-top: 2rem; }
+    .post-comments-list {
+      padding-top: 2rem; }
     .post-comments__form {
       padding-top: 2rem; }
     .post-comments__item {
@@ -41,9 +43,12 @@ nav {
       background-color: #fff;
       color: #495057;
       border: 1px solid rgba(0, 0, 0, 0.125); }
+      .post-comments__item__content {
+        margin-top: 1rem; }
+      .post-comments__item__date {
+        color: var(--gray); }
     .post-comments__response {
-      background-color: var(--light);
-      width: 90%;
+      width: 95%;
       justify-self: center; }
   .post-divisor {
     height: 1px;
