@@ -13,31 +13,21 @@
     
     &__container {
       text-decoration: none;
-  
-      &__heading {
-        color: var(--primary);
-      }
-  
-      &__author {
-        
-      }
-  
       &__title-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         &__title {
-  
-        }
-        &__date {
-  
+          
         }
       }
-  
-      &__description {
-  
-      }
+      
+    }
 
+    &__heading {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: .8rem;
     }
   }
   &-featured:hover {

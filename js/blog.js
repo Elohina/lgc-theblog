@@ -15,12 +15,12 @@ export const createCommentElement = ({id, user, date, content, postId}) => {
     </div>
     <form id="post-comments-form-${id}" data-parent=${id} class="post-comments__form" style="display:none;">
       <div class="form-group">
-        <label for="user-name">Name</label>
-        <input id="user-name" name="user-name" type="text" class="form-control" required/>
+        <label for="user-name-${id}">Name</label>
+        <input id="user-name-${id}" name="user-name" type="text" class="form-control" required/>
       </div>
       <div class="form-group">
-        <label for="user-comment">Content</label>
-        <textarea id="user-comment" class="form-control" rows="5" cols="50" required></textarea>
+        <label for="user-comment-${id}">Content</label>
+        <textarea id="user-comment-${id}" class="form-control" rows="5" cols="50" required></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
       <button id="cancelButton${id}" type="button" class="btn btn-secondary">Cancel</button>
@@ -106,7 +106,7 @@ export const renderPosts = (posts) => {
     cell.innerHTML = `
       <small>${post.author}</small>
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">${post.title}</h5>
+        <h3 class="mb-1">${post.title}</h3>
         <small>${formatDate(post.publish_date)}</small>
       </div>
       <p class="mb-1">${post.description}</p>`;

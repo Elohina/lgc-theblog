@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
 
   if (page === 'home') {
     fetchPosts().then(posts => {
-      if (posts.length) {
+      if (posts) {
         renderPosts(posts);
       } else {
         document.querySelector("#postsList").innerHTML = "<p>There are no posts published yet. Come back later :)</p>";

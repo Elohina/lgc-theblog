@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="author" content="Elohina Guevara" />
+  <meta name="description" content="TheBlog - Simply nice blogs">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
   
   <title>TheBlog</title>
 </head>
@@ -23,7 +25,7 @@
           >
         </form>
         <ul class="navbar-nav">
-          <li class="navbar-item">
+          <li class="navbar-item navbar-utils__item">
             <a class="nav-link" href="#">Sign in</a>
           </li>
         </ul>
@@ -36,7 +38,7 @@
       <section class="post-content">
         <div class="post-title__container">
           <h1 id="post-title" class="post-title__text"></h1>
-          <h5 id="post-description"></h5>
+          <p id="post-description" class="post-title__description"></p>
           <p id="post-author" class="post-title__author"></p>
         </div>
         <div id="post-content" class="post-content"></div>
