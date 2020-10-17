@@ -6,6 +6,12 @@ body {
   
 }
 
+@include media-breakpoint-down(lg) {
+  body {
+    padding: 8rem;
+  }
+}
+
 @include media-breakpoint-down(md) {
   body {
     padding: 5rem;

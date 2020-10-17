@@ -9,7 +9,7 @@ nav {
   }
   .navbar-utils {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 30%;
     padding-right: 2rem;
     padding-top: 1rem;
@@ -23,8 +23,20 @@ nav {
   nav {
     .navbar-utils {
       justify-content: space-between;
-      width: 40%;
+      width: 50%;
       padding-right: 0;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  nav {
+    text-align: center;
+    .navbar-brand {
+      width: 100%;
+    }
+    .navbar-utils {
+      width: 100%;
     }
   }
 }
