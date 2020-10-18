@@ -1,6 +1,6 @@
 # TheBlog App
 
-[Link to demo]()
+[Link to demo](http://letsgetchecked.elohinaguevara.s3-website-us-east-1.amazonaws.com/)
 
 ## Features
 
