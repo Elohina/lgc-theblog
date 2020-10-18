@@ -11,7 +11,7 @@
     * Add new comments.
     * Shows the comment's threads.
 2. Responsive design.
-3. Auto deploys using AWS Amplify Console.
+3. App deployed using AWS. S3 for the front end and Lightsail for the API.
 
 
 ## How to run the project
@@ -19,11 +19,10 @@
 #### `npm install`
 #### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode.
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+Remember to run the [API](https://github.com/LetsGetChecked/developer-challenge-api).
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
 
 
