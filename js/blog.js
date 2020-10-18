@@ -1,6 +1,11 @@
 import { formatDate, sortPosts } from './utils.js';
 import { fetchComments, addComment } from './api.js';
 
+/**
+ * Creates an DOM element for a single comment
+ * @param {object} comment Single comment data
+ * @returns {object}
+ */
 export const createCommentElement = ({id, user, date, content, postId}) => {
   let commentElement = document.createElement('div');
   let replyButton = document.createElement('button');
@@ -57,6 +62,10 @@ export const createCommentElement = ({id, user, date, content, postId}) => {
   return commentElement;
 };
 
+/**
+ * Adds comments to single post
+ * @param {object[]} comments Comment's list of single post
+ */
 export const renderComments = (comments) => {
   let postComments = document.getElementById('post-comments');
   document.getElementById('comments-amount').textContent = comments.length;
@@ -76,18 +85,29 @@ export const renderComments = (comments) => {
   }
 };
 
-export const openPost = (post) => {
-  document.querySelector('#post-title').textContent = post.title;
-  document.querySelector('#post-description').textContent = post.description;
-  document.querySelector('#post-content').innerHTML = post.content;
-  document.querySelector('#post-author').textContent = post.author;
-
-  fetchComments(post.id).then(comments => {
-    renderComments(comments);
-  });
+/**
+ * Shows post detail in the open post page
+ * @param {object} post Single post
+ */
+export const openPost = ({title, description, content, author, id}) => {
+  if (id) {
+    document.title = title;
+    document.querySelector('#post-title').textContent = title;
+    document.querySelector('#post-description').textContent = description;
+    document.querySelector('#post-content').innerHTML = content;
+    document.querySelector('#post-author').textContent = author;
+  
+    fetchComments(id).then(comments => {
+      renderComments(comments);
+    });
+  }
 
 };
 
+/**
+ * Adds pots't list to the home page
+ * @param {object[]} posts Post's list
+ */
 export const renderPosts = (posts) => {
   const sortedPosts = sortPosts(posts);
   let postsContainer = document.querySelector("#postsList");
@@ -110,7 +130,6 @@ export const renderPosts = (posts) => {
         <small>${formatDate(post.publish_date)}</small>
       </div>
       <p class="mb-1">${post.description}</p>`;
-    cell.addEventListener("click", event => openPost(post));
     postsContainer.appendChild(cell);
   });
 };
