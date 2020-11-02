@@ -18,9 +18,10 @@ window.addEventListener('load', () => {
   }
 
   if (page === 'post') {
-    const href = window.location.href;
-    const postId = parseInt(href.slice(href.indexOf("=")+1));
+    // const href = window.location.href;
+    const postId = localStorage.getItem('postId');
     fetchPost(postId).then(post => {
+      window.history.pushState({postId: postId}, "test", `${post.slug}`);
       openPost(post);
     });
     let commentsForm = document.getElementById('post-comments-form');

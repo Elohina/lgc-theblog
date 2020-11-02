@@ -116,13 +116,17 @@ export const renderPosts = (posts) => {
   document.getElementById("featuredTitle").textContent = featured.title ;
   document.getElementById("featuredDate").textContent = formatDate(featured.publish_date);
   document.getElementById("featuredDescription").textContent = featured.description ;
-  document.getElementById("featuredHref").setAttribute("href", `/post.html?id=${JSON.stringify(featured.id)}`); 
+  // document.getElementById("featuredHref").setAttribute("href", `/post/${JSON.stringify(featured.id)}`); 
+  document.getElementById("featuredHref").addEventListener("click", (event) => {
+    localStorage.setItem('postId', featured.id);    
+    window.location.href = "/post";
+  });
 
   sortedPosts.forEach(post => {
     let cell = document.createElement('a');
     cell.classList.add("posts__item", "list-group-item", "list-group-item-action", "flex-column", "align-items-start");
     cell.setAttribute("id", post.slug);
-    cell.setAttribute("href", `/post.html?id=${JSON.stringify(post.id)}`);
+    // cell.setAttribute("href", `/post/?id=${JSON.stringify(post.id)}`);
     cell.innerHTML = `
       <small>${post.author}</small>
       <div class="d-flex w-100 justify-content-between">
@@ -130,6 +134,10 @@ export const renderPosts = (posts) => {
         <small>${formatDate(post.publish_date)}</small>
       </div>
       <p class="mb-1">${post.description}</p>`;
+    cell.addEventListener("click", (event) => {
+      localStorage.setItem('postId', post.id);
+      window.location.href = "/post";
+    });
     postsContainer.appendChild(cell);
   });
 };
